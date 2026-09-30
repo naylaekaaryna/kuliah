@@ -1,0 +1,1209 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gimana Kuliahnya Hari Ini? ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 20% 20%, #52204f 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #18275c 0%, transparent 35%),
+        linear-gradient(135deg, #05050b, #0d1020, #090713);
+}
+
+/* BINTANG */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: white;
+    animation: kedip 2s infinite alternate;
+}
+
+@keyframes kedip {
+    from {
+        opacity: .2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* SLIDE */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    transform: translateX(100%);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* CARD */
+
+.card {
+    width: min(92%, 650px);
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(18, 18, 35, .86);
+
+    border: 1px solid rgba(255, 100, 180, .25);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        0 0 50px rgba(255,70,170,.08);
+}
+
+/* TEXT */
+
+h1 {
+    font-size: clamp(32px, 7vw, 58px);
+
+    margin-bottom: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff72b5,
+            #d58aff,
+            #ff9bc9
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    color: #ff83bd;
+
+    font-size: clamp(26px, 6vw, 42px);
+
+    margin-bottom: 18px;
+}
+
+p {
+    color: #deddec;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.emoji {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,80,170,.5)
+        );
+}
+
+/* BUTTON */
+
+button {
+    border: none;
+
+    padding: 14px 26px;
+
+    margin: 6px;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d99,
+            #925cff
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,70,160,.25);
+
+    transition: .25s;
+}
+
+button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.04);
+}
+
+/* PILIHAN */
+
+.choice {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.choice button {
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow: none;
+}
+
+/* WHATSAPP */
+
+.wa {
+    background:
+        linear-gradient(
+            135deg,
+            #18c96e,
+            #079c51
+        );
+}
+
+/* NAVIGASI */
+
+.navigation {
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 20;
+}
+
+/* MUSIK */
+
+.music-status {
+    position: fixed;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 30;
+
+    padding: 10px 17px;
+
+    border-radius: 30px;
+
+    color: #ff8bc3;
+
+    background:
+        rgba(15,15,30,.85);
+
+    border:
+        1px solid
+        rgba(255,100,180,.25);
+
+    font-size: 14px;
+}
+
+/* TOMBOL MULAI MUSIK */
+
+.start-music {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(3,3,10,.94);
+
+    backdrop-filter: blur(10px);
+
+    transition: opacity .5s;
+}
+
+.start-box {
+    width: min(90%, 430px);
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        rgba(20,20,38,.95);
+
+    border:
+        1px solid
+        rgba(255,100,180,.25);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.7);
+}
+
+.start-box h2 {
+    margin-bottom: 15px;
+}
+
+.start-box p {
+    font-size: 16px;
+}
+
+/* HATI */
+
+.heart {
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        jatuh linear forwards;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,80,170,.6)
+        );
+}
+
+@keyframes jatuh {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* PROGRESS */
+
+.progress {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    height: 3px;
+
+    z-index: 50;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4f9a,
+            #b45cff
+        );
+
+    transition: width .5s;
+}
+
+/* MOBILE */
+
+@media(max-width: 550px) {
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    .choice {
+        grid-template-columns: 1fr;
+    }
+
+    .emoji {
+        font-size: 55px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     MUSIK
+========================= -->
+
+<audio
+    id="music"
+    loop
+    preload="auto">
+
+    <source
+        src="lagu.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- STATUS MUSIK -->
+
+<div
+    class="music-status"
+    id="musicStatus">
+
+    🎵 Musik siap
+
+</div>
+
+
+<!-- =========================
+     LAYAR MULAI
+========================= -->
+
+<div
+    class="start-music"
+    id="startMusic">
+
+    <div class="start-box">
+
+        <div class="emoji">
+            ❤️
+        </div>
+
+        <h2>
+            Buat Kamu
+        </h2>
+
+       
+        <button onclick="startWebsite()">
+
+            ❤️ Masuk
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- BINTANG -->
+
+<div
+    class="stars"
+    id="stars">
+</div>
+
+
+<!-- PROGRESS -->
+
+<div
+    class="progress"
+    id="progress">
+</div>
+
+
+<!-- =========================
+     SLIDER
+========================= -->
+
+<div class="slider">
+
+
+<!-- SLIDE 1 -->
+
+<section class="slide active">
+
+<div class="card">
+
+    <div class="emoji">
+        ❤️
+    </div>
+
+    <h1>
+        Gimana Kuliahnya Hari Ini?
+    </h1>
+
+    <p>
+
+        Aku cuma mau tahu...
+
+        <br><br>
+
+        <b>
+            Gimana hari kamu hari ini?
+        </b>
+
+        <br><br>
+
+        Semoga nggak terlalu capek ya. 🥺
+
+    </p>
+
+    <button onclick="nextSlide()">
+
+        Mulai Cerita ✨
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 2 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        🎓
+    </div>
+
+    <h2>
+        Hari ini kuliahnya gimana?
+    </h2>
+
+    <p>
+        Pilih yang paling menggambarkan
+        hari kamu.
+    </p>
+
+    <div class="choice">
+
+        <button onclick="jawab('Seru banget 😍')">
+            😍 Seru banget
+        </button>
+
+        <button onclick="jawab('Lumayan 😊')">
+            😊 Lumayan
+        </button>
+
+        <button onclick="jawab('Ngantuk 😴')">
+            😴 Ngantuk
+        </button>
+
+        <button onclick="jawab('Capek banget 🥹')">
+            🥹 Capek
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 3 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        📚✨
+    </div>
+
+    <h2>
+        Tugasnya gimana?
+    </h2>
+
+    <p>
+        Masih aman atau sudah mulai
+        bikin kepala pusing?
+    </p>
+
+    <div class="choice">
+
+        <button onclick="nextSlide()">
+            😎 Aman
+        </button>
+
+        <button onclick="nextSlide()">
+            😵 Banyak
+        </button>
+
+        <button onclick="nextSlide()">
+            😭 Menumpuk
+        </button>
+
+        <button onclick="nextSlide()">
+            🫠 Jangan ditanya
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 4 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        ☕
+    </div>
+
+    <h2>
+        Sekarang butuh apa?
+    </h2>
+
+    <div class="choice">
+
+        <button onclick="nextSlide()">
+            ☕ Kopi
+        </button>
+
+        <button onclick="nextSlide()">
+            🍜 Makan
+        </button>
+
+        <button onclick="nextSlide()">
+            😴 Tidur
+        </button>
+
+        <button onclick="nextSlide()">
+            💬 Cerita
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 5 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        🌌
+    </div>
+
+    <h2>
+        Kalau boleh jujur...
+    </h2>
+
+    <p>
+
+        Hari ini lebih banyak
+        senyum atau capek?
+
+        <br><br>
+
+        Apa pun jawabannya,
+        nggak apa-apa. ❤️
+
+    </p>
+
+    <button onclick="nextSlide()">
+
+        Lanjut ❤️
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 6 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        🥺❤️
+    </div>
+
+    <h2>
+        Jangan lupa istirahat
+    </h2>
+
+    <p>
+
+        Kuliah memang kadang bikin capek.
+
+        <br><br>
+
+        Tapi kamu sudah berusaha
+        sampai sejauh ini.
+
+        <br><br>
+
+        <b>
+            Itu sudah cukup untuk hari ini.
+        </b>
+
+    </p>
+
+    <button onclick="nextSlide()">
+
+        Lanjut 🌷
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 7 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        💌
+    </div>
+
+    <h2>
+        Mau cerita?
+    </h2>
+
+    <p>
+
+        Kalau ada yang mau diceritain,
+        cerita aja.
+
+        <br><br>
+
+        Tentang kuliah,
+        tugas,
+        atau hari kamu.
+
+        <br><br>
+
+        Aku dengerin. ❤️
+
+    </p>
+
+    <button
+        class="wa"
+        onclick="openWhatsApp()">
+
+        💚 Chat WhatsApp
+
+    </button>
+
+    <button onclick="nextSlide()">
+
+        Lanjut ✨
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- SLIDE 8 -->
+
+<section class="slide">
+
+<div class="card">
+
+    <div class="emoji">
+        🌙❤️
+    </div>
+
+    <h2>
+        Sebelum selesai...
+    </h2>
+
+    <p>
+
+        Jangan lupa makan.
+
+        <br>
+
+        Jangan lupa minum.
+
+        <br>
+
+        Dan yang paling penting...
+
+        <br><br>
+
+        <b>
+            Jangan lupa istirahat. ❤️
+        </b>
+
+    </p>
+
+    <button onclick="restart()">
+
+        🔄 Mulai Lagi
+
+    </button>
+
+    <button
+        class="wa"
+        onclick="openWhatsApp()">
+
+        💚 WhatsApp
+
+    </button>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- NAVIGASI -->
+
+<div class="navigation">
+
+    <button onclick="prevSlide()">
+        ⬅️
+    </button>
+
+    <button onclick="nextSlide()">
+        ➡️
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   AUDIO
+========================= */
+
+const music =
+    document.getElementById("music");
+
+const startScreen =
+    document.getElementById("startMusic");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+
+/*
+    Musik dimulai setelah satu klik.
+    Setelah itu TIDAK PERNAH dipause
+    oleh perpindahan slide.
+*/
+
+function startWebsite() {
+
+    music.volume = 0.8;
+
+    music.play()
+        .then(function() {
+
+            startScreen.style.opacity = "0";
+
+            setTimeout(function() {
+
+                startScreen.style.display =
+                    "none";
+
+            }, 500);
+
+            musicStatus.innerHTML =
+                "🎵 Musik sedang berjalan";
+
+        })
+        .catch(function(error) {
+
+            alert(
+                "Musik belum bisa diputar. " +
+                "Pastikan file lagu.mp3 ada."
+            );
+
+        });
+}
+
+
+/*
+    Kalau lagu sampai selesai,
+    loop akan mengulang otomatis.
+*/
+
+music.addEventListener(
+    "ended",
+    function() {
+
+        music.currentTime = 0;
+
+        music.play();
+
+    }
+);
+
+
+/*
+    JAGA MUSIK TETAP BERJALAN
+
+    Jika browser menghentikan audio,
+    kita coba putar kembali.
+*/
+
+music.addEventListener(
+    "pause",
+    function() {
+
+        /*
+        Jangan lakukan apa-apa kalau
+        halaman sedang ditutup.
+        */
+
+        if (
+            document.visibilityState ===
+            "visible"
+        ) {
+
+            music.play()
+                .catch(function() {});
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SLIDER
+========================= */
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const progress =
+    document.getElementById("progress");
+
+
+function showSlide(index) {
+
+    slides.forEach(function(slide) {
+
+        slide.classList.remove("active");
+
+    });
+
+    slides[index]
+        .classList.add("active");
+
+    updateProgress();
+}
+
+
+function nextSlide() {
+
+    currentSlide++;
+
+    if (
+        currentSlide >= slides.length
+    ) {
+
+        currentSlide = 0;
+
+    }
+
+    showSlide(currentSlide);
+}
+
+
+function prevSlide() {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+    showSlide(currentSlide);
+}
+
+
+function restart() {
+
+    currentSlide = 0;
+
+    showSlide(currentSlide);
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress() {
+
+    const persen =
+        ((currentSlide + 1)
+        / slides.length) * 100;
+
+    progress.style.width =
+        persen + "%";
+}
+
+
+/* =========================
+   JAWABAN
+========================= */
+
+function jawab(text) {
+
+    nextSlide();
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function openWhatsApp() {
+
+    /*
+    GANTI NOMOR DI SINI
+
+    Contoh:
+    081234567890
+
+    menjadi:
+    6281234567890
+    */
+
+    const nomor =
+        "6281319705871";
+
+    const pesan =
+        "Hai 👋 Aku baru selesai " +
+        "jawab Gimana Kuliahnya Hari Ini ❤️";
+
+    const url =
+        "https://wa.me/" +
+        nomor +
+        "?text=" +
+        encodeURIComponent(pesan);
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+
+/* =========================
+   BINTANG
+========================= */
+
+const stars =
+    document.getElementById("stars");
+
+
+for (
+    let i = 0;
+    i < 100;
+    i++
+) {
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "vw";
+
+    star.style.top =
+        Math.random() * 100 + "vh";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+/* =========================
+   HATI JATUH
+========================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "heart";
+
+    const list = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "🌸"
+    ];
+
+    heart.innerHTML =
+        list[
+            Math.floor(
+                Math.random() *
+                list.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (14 + Math.random() * 15)
+        + "px";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5)
+        + "s";
+
+    document.body.appendChild(
+        heart
+    );
+
+    setTimeout(
+        function() {
+
+            heart.remove();
+
+        },
+        9000
+    );
+}
+
+
+setInterval(
+    createHeart,
+    600
+);
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextSlide();
+
+        }
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            prevSlide();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   MULAI
+========================= */
+
+updateProgress();
+
+</script>
+
+</body>
+</html>
